@@ -183,10 +183,10 @@ else
             export OLLAMA_WEBAPI_PORT=$api_port # Set OLLAMA_WEBAPI_PORT environment variable
         fi
     fi
-    if [[ -n $data_dir ]]; then
-        DEFAULT_COMPOSE_COMMAND+=" -f docker-compose.data.yaml"
-        export OLLAMA_DATA_DIR=$data_dir # Set OLLAMA_DATA_DIR environment variable
-    fi
+    # if [[ -n $data_dir ]]; then
+    #     DEFAULT_COMPOSE_COMMAND+=" -f docker-compose.data.yaml"
+    #     export OLLAMA_DATA_DIR=$data_dir # Set OLLAMA_DATA_DIR environment variable
+    # fi
     if [[ $enable_playwright == true ]]; then
         DEFAULT_COMPOSE_COMMAND+=" -f docker-compose.playwright.yaml"
     fi
