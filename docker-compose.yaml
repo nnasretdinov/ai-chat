@@ -44,6 +44,8 @@ services:
       - 'S3_ENDPOINT_URL=${S3_ENDPOINT_URL}'
       - 'S3_REGION_NAME=${S3_REGION_NAME}'
       - 'S3_BUCKET_NAME=${S3_BUCKET_NAME}'
+      - 'OPENAI_LOG_LEVEL=${OPENAI_LOG_LEVEL}'
+      - 'GLOBAL_LOG_LEVEL=${GLOBAL_LOG_LEVEL}'
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
