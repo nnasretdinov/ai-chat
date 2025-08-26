@@ -81,9 +81,9 @@
 	{/if}
 </div>
 
-<div class="h-200 overflow-auto scrollbar-none w-full">
+<div class="h-100 overflow-auto scrollbar-none w-full">
 	{#if filteredPrompts.length > 0}
-		<div role="list" class="max-h-40 overflow-auto scrollbar-none items-start {className}">
+		<div role="list" class="max-h-100 overflow-auto scrollbar-none items-start {className}">
 			{#each filteredPrompts as prompt, idx (prompt.id || prompt.content)}
 				<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
 				<button
