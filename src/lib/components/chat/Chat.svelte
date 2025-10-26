@@ -2438,6 +2438,26 @@
 									}}
 								/>
 
+								<div class="px-5 py-3 text-left hidden md:block lg:block">
+									<div class="flex items-start gap-3">
+										<!-- Иконка предупреждения -->
+										<div class="flex-shrink-0 mt-0.5 text-red-400">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-amber-600 dark:text-amber-400">
+												<path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd"></path>
+											</svg>
+										</div>
+										
+										<!-- Текст предупреждения для десктопа -->
+										<div class="flex-1">
+											
+											<p class="text-xs text-gray-600 dark:text-gray-100">
+												<span class="font-medium">Перед принятием важного решения</span> рекомендуем обратиться к нашему <a href="https://t.me/law_me_84" class="font-weight-bold text-gray-800 dark:text-gray-200">адвокату</a> для оценки всех обстоятельств и предложения стратегии по вашему делу. 
+												Телефон для связи <a href="tel:+79650379031" class="font-weight-bold text-gray-800 dark:text-gray-200">+7 (965) 037 90 31</a>
+											</p>
+										</div>
+									</div>
+								</div>
+
 								<div
 									class="absolute bottom-1 text-xs text-gray-500 text-center line-clamp-1 right-0 left-0"
 								>
