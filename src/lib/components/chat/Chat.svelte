@@ -2452,7 +2452,7 @@
 											
 											<p class="text-xs text-gray-600 dark:text-gray-100">
 												<span class="font-medium">Перед принятием важного решения</span> рекомендуем обратиться к нашему <a href="https://t.me/law_me_84" class="font-weight-bold text-gray-800 dark:text-gray-200">адвокату</a> для оценки всех обстоятельств и предложения стратегии по вашему делу. 
-												Телефон для связи <a href="tel:+79650379031" class="font-weight-bold text-gray-800 dark:text-gray-200">+7 (965) 037 90 31</a>
+												Телефон для связи <a href="tel:+79581001938" class="font-weight-bold text-gray-800 dark:text-gray-200">+7(958)100-19-38</a>
 											</p>
 										</div>
 									</div>
