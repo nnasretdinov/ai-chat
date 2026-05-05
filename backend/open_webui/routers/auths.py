@@ -574,6 +574,20 @@ async def ldap_auth(
         raise HTTPException(400, detail="LDAP authentication failed.")
 
 
+def _fix_header_encoding(value: str) -> str:
+    """
+    Fix mojibake when UTF-8 bytes were incorrectly interpreted as Latin-1 (ISO-8859-1).
+    HTTP headers officially support only ASCII; when UTF-8 (e.g. Cyrillic) is passed,
+    it may be misinterpreted by proxies/servers, producing mojibake like ÐÐ²Ð°Ð½Ð¾.
+    """
+    if not value or not isinstance(value, str):
+        return value
+    try:
+        return value.encode("latin-1").decode("utf-8")
+    except (UnicodeDecodeError, UnicodeEncodeError):
+        return value
+
+
 ############################
 # SignIn
 ############################
@@ -603,8 +617,9 @@ async def signin(
             name = request.headers.get(WEBUI_AUTH_TRUSTED_NAME_HEADER, email)
             try:
                 name = urllib.parse.unquote(name, encoding="utf-8")
-            except Exception as e:
+            except Exception:
                 pass
+            name = _fix_header_encoding(name)
 
         if not Users.get_user_by_email(email.lower(), db=db):
             await signup_handler(
@@ -616,6 +631,9 @@ async def signin(
             )
 
         user = Auths.authenticate_user_by_email(email, db=db)
+        if user and WEBUI_AUTH_TRUSTED_NAME_HEADER and name != email and name != user.name:
+            Users.update_user_by_id(user.id, {"name": name}, db=db)
+            user = Users.get_user_by_id(user.id, db=db)
         if WEBUI_AUTH_TRUSTED_GROUPS_HEADER and user and user.role != "admin":
             group_names = request.headers.get(
                 WEBUI_AUTH_TRUSTED_GROUPS_HEADER, ""
