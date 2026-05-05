@@ -24,7 +24,7 @@ ARG UID=0
 ARG GID=0
 
 ######## WebUI frontend ########
-FROM --platform=$BUILDPLATFORM node:22-alpine3.20 AS build
+FROM --platform=linux/amd64 node:22-alpine3.20 AS build
 ARG BUILD_HASH
 
 # Set Node.js options (heap limit Allocation failed - JavaScript heap out of memory)
@@ -39,7 +39,8 @@ COPY package.json package-lock.json ./
 RUN npm ci --force
 
 COPY . .
-ENV APP_BUILD_HASH=${BUILD_HASH}
+ENV APP_BUILD_HASH=${BUILD_HASH} \
+    NODE_OPTIONS="--max-old-space-size=4096"
 RUN npm run build
 
 ######## WebUI backend ########
